@@ -2,10 +2,11 @@ class EcoImages {
   // App logo
   static const String darkAppLogo = "assets/logos/logo.png";
   static const String lightAppLogo = "assets/logos/logo.png";
+  static const String logo = "assets/logos/logo.png";
 
   // Social logo
-  static const String google = "assets/logos/facebook_logo.png";
-  static const String facebook = "assets/logos/google_logo.png";
+  static const String facebook = "assets/logos/facebook_logo.png";
+  static const String google = "assets/logos/google_logo.png";
 
   // OnBoarding Images
   static const String onBoardingImage1 =
