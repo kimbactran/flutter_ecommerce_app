@@ -30,9 +30,9 @@ class EcoTexts {
   static const String forgetPassword = "Forget Password";
   static const String signIn = "Sign In";
   static const String createAccount = "Create Account";
-  static const String orSignInWith = "or sign in with";
-  static const String orSignUpWith = "or sign up with";
-  static const String iAgreeTo = "I agree to";
+  static const String orSignInWith = "Or Sign In With";
+  static const String orSignUpWith = "Or Sign Up With";
+  static const String iAgreeTo = "I agree to ";
   static const String privacyPolicy = "Privacy Policy";
   static const String termsOfUse = "Terms Of Use";
   static const String verificationCode = "Verification Code";

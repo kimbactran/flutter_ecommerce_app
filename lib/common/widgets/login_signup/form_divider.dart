@@ -1,11 +1,10 @@
 import 'package:ecommerce_app/utils/constants/colors.dart';
-import 'package:ecommerce_app/utils/constants/text_string.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class EcoFormDivider extends StatelessWidget {
-  const EcoFormDivider({super.key});
+  const EcoFormDivider({super.key, required this.dividerText});
+  final String dividerText;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class EcoFormDivider extends StatelessWidget {
           ),
         ),
         Text(
-          EcoTexts.orSignInWith.capitalize!,
+          dividerText,
           style: Theme.of(context).textTheme.labelMedium,
         ),
         Flexible(

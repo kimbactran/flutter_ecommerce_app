@@ -4,6 +4,7 @@ import 'package:ecommerce_app/features/authentication/screens/login/widgets/logi
 import 'package:ecommerce_app/features/authentication/screens/login/widgets/login_header.dart';
 import 'package:ecommerce_app/common/widgets/login_signup/social_button.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
+import 'package:ecommerce_app/utils/constants/text_string.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class LoginScreen extends StatelessWidget {
             // -- Form
             EcoLoginForm(),
             // -- Divider
-            EcoFormDivider(),
+            EcoFormDivider(dividerText: EcoTexts.orSignInWith),
             SizedBox(
               height: EcoSizes.spaceBtwSections,
             ),
