@@ -15,4 +15,14 @@ class EcoImages {
       "assets/images/on_boarding_images/sammy-line-woman-in-shopping-cart-placing-order-on-smartphone.gif";
   static const String onBoardingImage3 =
       "assets/images/on_boarding_images/sammy-line-man-and-dog-delivering-packages-on-a-moped.gif";
+
+  // Verify Email Image
+  static const String productsIllustration = "";
+  static const String productsSaleIllustration = "";
+  static const String staticSuccessIllustration =
+      "assets/images/login_images/sammy-line-man-and-woman-high-fiving-each-other.png";
+  static const String deliveredInPlaneIllustration = "";
+  static const String deliveredEmailIllustration =
+      "assets/images/login_images/sammy-line-man-receives-a-mail.png";
+  static const String verifyIllustration = "";
 }

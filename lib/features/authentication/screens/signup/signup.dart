@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/common/widgets/login_signup/form_divider.dart';
 import 'package:ecommerce_app/common/widgets/login_signup/social_button.dart';
+import 'package:ecommerce_app/features/authentication/screens/signup/verify_email.dart';
 import 'package:ecommerce_app/features/authentication/screens/signup/widgets/signup_form.dart';
 import 'package:ecommerce_app/common/widgets/login_signup/term_policy_check.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
@@ -31,12 +32,15 @@ class SignUpScreen extends StatelessWidget {
               const EcoSignUpForm(),
               // Term&Condition checkout
               const EcoTermsAndConditionCheckbox(),
+              const SizedBox(
+                height: EcoSizes.spaceBtwSections,
+              ),
               // Sign Up Button
               // Create Account Button
               SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () => Get.to(() => const SignUpScreen()),
+                      onPressed: () => Get.to(() => const VerifyEmailScreen()),
                       child: const Text(EcoTexts.createAccount))),
               const SizedBox(
                 height: EcoSizes.spaceBtwSections,

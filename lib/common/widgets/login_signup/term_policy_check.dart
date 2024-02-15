@@ -33,9 +33,7 @@ class EcoTermsAndConditionCheckbox extends StatelessWidget {
           TextSpan(
               text: '${EcoTexts.termsOfUse}',
               style: Theme.of(context).textTheme.bodySmall!.apply(
-                    color: dark
-                        ? const Color.fromARGB(255, 58, 49, 49)
-                        : EcoColors.primary,
+                    color: dark ? EcoColors.white : EcoColors.primary,
                     decoration: TextDecoration.underline,
                     decorationColor: dark ? EcoColors.white : EcoColors.primary,
                   )),
