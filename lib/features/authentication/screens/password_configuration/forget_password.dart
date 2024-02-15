@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/common/styles/spacing_styles.dart';
 import 'package:ecommerce_app/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/constants/text_string.dart';

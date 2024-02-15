@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:ecommerce_app/features/authentication/screens/signup/signup.dart';
+import 'package:ecommerce_app/navigation_menu.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/constants/text_string.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +63,8 @@ class EcoLoginForm extends StatelessWidget {
           SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: () {}, child: const Text(EcoTexts.signIn))),
+                  onPressed: () => Get.to(() => const NavigationMenu()),
+                  child: const Text(EcoTexts.signIn))),
           const SizedBox(
             height: EcoSizes.spaceBtwSections,
           ),
