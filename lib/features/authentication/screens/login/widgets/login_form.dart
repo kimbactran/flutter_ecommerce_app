@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:ecommerce_app/features/authentication/screens/signup/signup.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/constants/text_string.dart';
@@ -49,7 +50,8 @@ class EcoLoginForm extends StatelessWidget {
 
               // Forget Password
               TextButton(
-                  onPressed: () {}, child: const Text(EcoTexts.forgetPassword)),
+                  onPressed: () => Get.to(() => const ForgetPassword()),
+                  child: const Text(EcoTexts.forgetPassword)),
             ],
           ),
           const SizedBox(
