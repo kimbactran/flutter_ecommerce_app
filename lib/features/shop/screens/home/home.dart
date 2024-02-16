@@ -1,9 +1,5 @@
-import 'package:ecommerce_app/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/primary_header_container.dart';
-import 'package:ecommerce_app/common/widgets/custom_shapes/curved_edges/curved_edges.dart';
-import 'package:ecommerce_app/common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
-import 'package:ecommerce_app/utils/constants/colors.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:ecommerce_app/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,7 +13,13 @@ class HomeScreen extends StatelessWidget {
           children: [
             EcoPrimaryHeaderContainer(
               child: Column(
-                children: [],
+                children: [
+                  /// -- AppBar
+                  EcoHomeAppBar()
+
+                  /// -- SearchBar
+                  /// -- Categories
+                ],
               ),
             )
           ],
