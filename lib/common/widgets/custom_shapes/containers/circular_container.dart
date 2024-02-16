@@ -6,15 +6,17 @@ class EcoCircularContainer extends StatelessWidget {
       {super.key,
       this.width,
       this.height,
-      required this.radius,
-      required this.padding,
+      this.radius = 400,
+      this.padding = 0,
       this.child,
-      this.backgroundColor = EcoColors.white});
+      this.backgroundColor = EcoColors.white,
+      this.margin});
 
   final double? width;
   final double? height;
   final double radius;
   final double padding;
+  final EdgeInsets? margin;
   final Widget? child;
   final Color backgroundColor;
   @override
@@ -23,6 +25,7 @@ class EcoCircularContainer extends StatelessWidget {
       width: width,
       height: height,
       padding: EdgeInsets.all(padding),
+      margin: margin,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
         color: backgroundColor,
