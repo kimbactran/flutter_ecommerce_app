@@ -80,7 +80,8 @@ flutter:
   # Local assets
   assets:
     - assets/fonts/
-    - assets/icons/
+    - assets/icons/brands/
+    - assets/icons/categories/
     - assets/logos/
     - assets/images/on_boarding_images/
     - assets/images/login_images/

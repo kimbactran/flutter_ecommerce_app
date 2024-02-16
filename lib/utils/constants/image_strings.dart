@@ -25,4 +25,22 @@ class EcoImages {
   static const String deliveredEmailIllustration =
       "assets/images/login_images/sammy-line-man-receives-a-mail.png";
   static const String verifyIllustration = "";
+
+  // -- Category Icons
+  static const String sportIcon =
+      "assets/icons/categories/icons8-bowling-64.png";
+  static const String clothIcon =
+      "assets/icons/categories/icons8-tailors-dummy-64.png";
+  static const String shoeIcon = "assets/icons/categories/icons8-shoes-64.png";
+  static const String cosmeticIcon =
+      "assets/icons/categories/icons8-cosmetic-64.png";
+  static const String animalIcon =
+      "assets/icons/categories/icons8-dog-heart-64.png";
+  static const String toyIcon = "assets/icons/categories/icons8-toy-car-50.png";
+  static const String furnitureIcon =
+      "assets/icons/categories/icons8-dining-chair-64.png";
+  static const String jewelryIcon =
+      "assets/icons/categories/icons8-diamond-64.png";
+  static const String electronicsIcon =
+      "assets/icons/categories/icons8-smartphone-64.png";
 }
