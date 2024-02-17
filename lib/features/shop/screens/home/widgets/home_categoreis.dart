@@ -13,16 +13,16 @@ class EcoHomeCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: EcoSizes.defaultSpace),
+      padding: const EdgeInsets.only(left: EcoSizes.defaultSpace),
       child: Column(
         children: [
           /// --- Heading
-          EcoSectionHeading(
+          const EcoSectionHeading(
             title: 'Popular Categories',
             showActionButton: false,
             textColor: EcoColors.white,
           ),
-          SizedBox(
+          const SizedBox(
             height: EcoSizes.spaceBtwItems,
           ),
 

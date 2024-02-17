@@ -14,8 +14,8 @@ class OnBoardingSkip extends StatelessWidget {
         top: EcoDeviceUtils.getAppBarHeight(),
         right: EcoSizes.defaultSpace,
         child: TextButton(
-          child: const Text('Skip'),
           onPressed: controller.skipPage,
+          child: const Text('Skip'),
         ));
   }
 }

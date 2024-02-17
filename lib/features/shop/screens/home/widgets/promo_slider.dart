@@ -3,7 +3,6 @@ import 'package:ecommerce_app/common/widgets/custom_shapes/containers/circular_c
 import 'package:ecommerce_app/common/widgets/image/rounded_image.dart';
 import 'package:ecommerce_app/features/shop/controllers/home_controller.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
-import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,7 +28,7 @@ class EcoPromoSlider extends StatelessWidget {
                 viewportFraction: 0.9,
                 onPageChanged: (index, _) =>
                     controller.updatePageIndicator(index))),
-        SizedBox(
+        const SizedBox(
           height: EcoSizes.spaceBtwItems,
         ),
         Center(
@@ -44,7 +43,7 @@ class EcoPromoSlider extends StatelessWidget {
                     backgroundColor: controller.carousalCurrentIndex.value == i
                         ? EcoColors.primary
                         : EcoColors.grey,
-                    margin: EdgeInsets.only(right: 10),
+                    margin: const EdgeInsets.only(right: 10),
                   ),
               ],
             ),

@@ -51,4 +51,28 @@ class EcoImages {
       "assets/images/banners/promotion-banner-2.png";
   static const String promoBanner3 =
       "assets/images/banners/promotion-banner-3.gif";
+
+  // Products
+  static const String productImage1 =
+      "assets/images/products/accer_laptop_1.jpg";
+  static const String productImage2 =
+      "assets/images/products/accer_laptop_2.jpg";
+  static const String productImage3 =
+      "assets/images/products/accer_laptop_3.jpg";
+  static const String productImage4 =
+      "assets/images/products/accer_laptop_4.jpg";
+  static const String productImage5 =
+      "assets/images/products/accer_laptop_var_1.jpg";
+  static const String productImage6 =
+      "assets/images/products/accer_laptop_var_2.jpg";
+  static const String productImage7 =
+      "assets/images/products/accer_laptop_var_3.jpg";
+  static const String productImage8 =
+      "assets/images/products/accer_laptop_var_4.jpg";
+  static const String productImage9 =
+      "assets/images/products/adidas_football.jpg";
+  static const String productImage10 =
+      "assets/images/products/baseball_bat.png";
+  static const String productImage11 = "assets/images/products/iphone_14.jpg";
+  static const String productImage12 = "assets/images/products/iphone.jpg";
 }

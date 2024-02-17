@@ -2,7 +2,6 @@ import 'package:ecommerce_app/common/styles/spacing_styles.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/constants/text_string.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SuccessScreen extends StatelessWidget {

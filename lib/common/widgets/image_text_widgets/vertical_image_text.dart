@@ -30,7 +30,7 @@ class EcoVerticalImageText extends StatelessWidget {
             Container(
               width: 56,
               height: 56,
-              padding: EdgeInsets.all(EcoSizes.sm),
+              padding: const EdgeInsets.all(EcoSizes.sm),
               decoration: BoxDecoration(
                   color: backgroundColor ??
                       (darkMode ? EcoColors.black : EcoColors.white),

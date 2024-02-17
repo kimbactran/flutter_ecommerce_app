@@ -1,12 +1,10 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ecommerce_app/common/widgets/custom_shapes/containers/circular_container.dart';
+import 'package:ecommerce_app/common/layouts/grid_layout.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:ecommerce_app/common/widgets/image/rounded_image.dart';
+import 'package:ecommerce_app/common/widgets/product/product_cards/product_card_vertical.dart';
 import 'package:ecommerce_app/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:ecommerce_app/features/shop/screens/home/widgets/home_categoreis.dart';
 import 'package:ecommerce_app/features/shop/screens/home/widgets/promo_slider.dart';
-import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +18,7 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            EcoPrimaryHeaderContainer(
+            const EcoPrimaryHeaderContainer(
               child: Column(
                 children: [
                   /// -- AppBar
@@ -46,12 +44,26 @@ class HomeScreen extends StatelessWidget {
             /// Body
             Padding(
               padding: const EdgeInsets.all(EcoSizes.defaultSpace),
-              child: EcoPromoSlider(
-                banners: [
-                  EcoImages.promoBanner1,
-                  EcoImages.promoBanner2,
-                  EcoImages.promoBanner3,
-                  EcoImages.promoBanner3,
+              child: Column(
+                children: [
+                  /// -- Promo Slider
+                  const EcoPromoSlider(
+                    banners: [
+                      EcoImages.promoBanner1,
+                      EcoImages.promoBanner2,
+                      EcoImages.promoBanner3,
+                      EcoImages.promoBanner3,
+                    ],
+                  ),
+                  const SizedBox(
+                    height: EcoSizes.spaceBtwSections,
+                  ),
+
+                  /// -- Popular Products
+                  EcoGridLayout(
+                    itemCount: 5,
+                    itemBuilder: (_, index) => const EcoProductCardVertical(),
+                  ),
                 ],
               ),
             )
