@@ -1,4 +1,3 @@
-
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/device/device_utility.dart';
@@ -13,17 +12,20 @@ class EcoSearchContainer extends StatelessWidget {
     this.icon = Iconsax.search_normal,
     this.showBackground = true,
     this.showBorder = true,
+    this.padding =
+        const EdgeInsets.symmetric(horizontal: EcoSizes.defaultSpace),
   });
 
   final String text;
   final IconData? icon;
   final bool showBackground, showBorder;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
     final darkMode = EcoHelperFunctions.isDarkMode(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: EcoSizes.defaultSpace),
+      padding: padding,
       child: Container(
         width: EcoDeviceUtils.getScreenWidth(),
         padding: const EdgeInsets.all(EcoSizes.md),

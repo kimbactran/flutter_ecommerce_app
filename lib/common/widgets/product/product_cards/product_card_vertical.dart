@@ -2,7 +2,9 @@ import 'package:ecommerce_app/common/styles/shadows.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:ecommerce_app/common/widgets/icons/circular_icon.dart';
 import 'package:ecommerce_app/common/widgets/image/rounded_image.dart';
-import 'package:ecommerce_app/common/widgets/product/product_cards/product_price_text.dart';
+import 'package:ecommerce_app/common/widgets/texts/brand_title_text.dart';
+import 'package:ecommerce_app/common/widgets/texts/brand_title_text_with_verified_icon.dart';
+import 'package:ecommerce_app/common/widgets/texts/product_price_text.dart';
 import 'package:ecommerce_app/common/widgets/texts/product_title_text.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
@@ -87,55 +89,47 @@ class EcoProductCardVertical extends StatelessWidget {
                   const SizedBox(
                     height: EcoSizes.spaceBtwItems / 2,
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        'Acer',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      const SizedBox(
-                        width: EcoSizes.xs,
-                      ),
-                      const Icon(
-                        Iconsax.verify5,
-                        color: EcoColors.primary,
-                        size: EcoSizes.iconXs,
-                      )
-                    ],
+                  EcoBrandTitleWithVerifiedIcon(
+                    title: "Acer",
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      /// Price
-                      ///
-                      const EcoProductPriceText(
-                        price: '80.5',
-                        isLarge: false,
-                      ),
-
-                      /// Add to Cart Button
-                      Container(
-                        decoration: const BoxDecoration(
-                            color: EcoColors.dark,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(EcoSizes.cardRadiusMd),
-                                bottomRight: Radius.circular(
-                                    EcoSizes.productImageRadius))),
-                        child: const SizedBox(
-                            width: EcoSizes.iconLg * 1.2,
-                            height: EcoSizes.iconLg * 1.2,
-                            child: Center(
-                                child: Icon(
-                              Iconsax.add,
-                              color: EcoColors.white,
-                            ))),
-                      )
-                    ],
-                  )
                 ],
               ),
+            ),
+            // Add Spacer() here to keep the height of each Box same in case 1 or 2 lines of Headings
+            const Spacer(),
+
+            /// Price Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                /// Price
+                ///
+                const Padding(
+                  padding: EdgeInsets.only(left: EcoSizes.sm),
+                  child: EcoProductPriceText(
+                    price: '80.5',
+                    isLarge: false,
+                  ),
+                ),
+
+                /// Add to Cart Button
+                Container(
+                  decoration: const BoxDecoration(
+                      color: EcoColors.dark,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(EcoSizes.cardRadiusMd),
+                          bottomRight:
+                              Radius.circular(EcoSizes.productImageRadius))),
+                  child: const SizedBox(
+                      width: EcoSizes.iconLg * 1.2,
+                      height: EcoSizes.iconLg * 1.2,
+                      child: Center(
+                          child: Icon(
+                        Iconsax.add,
+                        color: EcoColors.white,
+                      ))),
+                )
+              ],
             )
           ],
         ),
