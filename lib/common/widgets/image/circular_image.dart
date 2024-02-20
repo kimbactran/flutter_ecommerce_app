@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/utils/constants/colors.dart';
-import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +46,7 @@ class EcoCircularImage extends StatelessWidget {
               ? NetworkImage(imageUrl)
               : AssetImage(imageUrl) as ImageProvider,
           fit: fit,
-          color: overlayColor,
+          color: overlayColor ?? (darkMode ? EcoColors.light : EcoColors.dark),
         ),
       ),
     );
