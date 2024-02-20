@@ -75,4 +75,7 @@ class EcoImages {
       "assets/images/products/baseball_bat.png";
   static const String productImage11 = "assets/images/products/iphone_14.jpg";
   static const String productImage12 = "assets/images/products/iphone.jpg";
+
+  // User
+  static const String userDefault = "assets/images/users/user.png";
 }

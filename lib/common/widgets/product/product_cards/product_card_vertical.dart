@@ -76,16 +76,16 @@ class EcoProductCardVertical extends StatelessWidget {
             ),
 
             /// -- Details
-            Padding(
-              padding: const EdgeInsets.only(left: EcoSizes.sm),
+            const Padding(
+              padding: EdgeInsets.only(left: EcoSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const ProductTitleText(
+                  ProductTitleText(
                     title: "Acer aspire 7 A715-76-5",
                     smallSize: true,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: EcoSizes.spaceBtwItems / 2,
                   ),
                   EcoBrandTitleWithVerifiedIcon(

@@ -37,7 +37,10 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   /// -- Categories
-                  EcoHomeCategories()
+                  EcoHomeCategories(),
+                  SizedBox(
+                    height: EcoSizes.spaceBtwSections,
+                  ),
                 ],
               ),
             ),
