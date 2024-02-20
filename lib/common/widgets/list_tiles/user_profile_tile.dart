@@ -10,10 +10,12 @@ class EcoUserProfileTile extends StatelessWidget {
     this.title,
     this.subTitle,
     this.imageUrl,
+    this.onPressed,
   });
 
   final String? title, subTitle;
   final String? imageUrl;
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -37,7 +39,7 @@ class EcoUserProfileTile extends StatelessWidget {
             .apply(color: EcoColors.white),
       ),
       trailing: IconButton(
-          onPressed: () {},
+          onPressed: onPressed,
           icon: const Icon(
             Iconsax.edit,
             color: EcoColors.white,
