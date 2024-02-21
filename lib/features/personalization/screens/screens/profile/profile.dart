@@ -7,7 +7,6 @@ import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -16,13 +15,13 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final darkMode = EcoHelperFunctions.isDarkMode(context);
     return Scaffold(
-      appBar: EcoAppBar(
+      appBar: const EcoAppBar(
         showBackArrow: true,
         title: Text('Profile'),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(EcoSizes.defaultSpace),
+          padding: const EdgeInsets.all(EcoSizes.defaultSpace),
           child: Column(children: [
             SizedBox(
               width: double.infinity,
@@ -43,7 +42,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(
               height: EcoSizes.spaceBtwItems / 2,
             ),
-            Divider(),
+            const Divider(),
             const SizedBox(
               height: EcoSizes.spaceBtwItems,
             ),
@@ -70,7 +69,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(
               height: EcoSizes.spaceBtwItems,
             ),
-            Divider(),
+            const Divider(),
             const SizedBox(
               height: EcoSizes.spaceBtwItems,
             ),
@@ -124,7 +123,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(
               height: EcoSizes.spaceBtwItems,
             ),
-            Divider(),
+            const Divider(),
             Center(
                 child: TextButton(
               onPressed: () {},

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ProductTitleText extends StatelessWidget {
-  const ProductTitleText({
+class EcoProductTitleText extends StatelessWidget {
+  const EcoProductTitleText({
     super.key,
     required this.title,
     this.smallSize = false,
