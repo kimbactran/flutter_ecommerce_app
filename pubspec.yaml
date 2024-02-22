@@ -92,6 +92,7 @@ flutter:
     - assets/images/banners/
     - assets/images/products/
     - assets/images/users/
+    - assets/images/success_image/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -78,4 +78,8 @@ class EcoImages {
 
   // User
   static const String userDefault = "assets/images/users/user.png";
+
+  // Success
+  static const String successPayment =
+      "assets/images/success_image/payment_success.png";
 }
