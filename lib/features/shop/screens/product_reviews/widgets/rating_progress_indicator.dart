@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/personalization/screens/screens/product_reviews/widgets/progress_indicator_and_rating.dart';
+import 'package:ecommerce_app/features/shop/screens/product_reviews/widgets/progress_indicator_and_rating.dart';
 import 'package:flutter/material.dart';
 
 class EcoOverallProductRating extends StatelessWidget {

@@ -17,7 +17,7 @@ class EcoRatingBarIndicator extends StatelessWidget {
         rating: rating,
         itemSize: 20,
         unratedColor: EcoColors.grey,
-        itemBuilder: (_, __) => Icon(
+        itemBuilder: (_, __) => const Icon(
               Iconsax.star1,
               color: EcoColors.primary,
             ));

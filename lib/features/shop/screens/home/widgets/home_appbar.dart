@@ -1,8 +1,10 @@
 import 'package:ecommerce_app/common/widgets/appbar/appbar.dart';
 import 'package:ecommerce_app/common/widgets/product/cart/cart_menu_icon.dart';
+import 'package:ecommerce_app/features/shop/screens/cart/cart.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/text_string.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class EcoHomeAppBar extends StatelessWidget {
   const EcoHomeAppBar({
@@ -30,7 +32,7 @@ class EcoHomeAppBar extends StatelessWidget {
       ]),
       actions: [
         EcoCartCounterIcon(
-          onPressed: () {},
+          onPressed: () => Get.to(() => const CartScreen()),
           iconColor: EcoColors.white,
         )
       ],
