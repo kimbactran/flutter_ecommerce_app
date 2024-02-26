@@ -5,6 +5,7 @@ import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
 import 'package:ecommerce_app/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:ecommerce_app/features/shop/screens/address/address.dart';
 import 'package:ecommerce_app/features/personalization/screens/screens/profile/profile.dart';
+import 'package:ecommerce_app/features/shop/screens/order/order.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +73,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subTitle: 'Withdraw balance to registered bank account',
-                    onTap: () {},
+                    onTap: () => Get.to(() => const OrderScreen()),
                   ),
                   EcoSettingsMenuTile(
                     icon: Iconsax.bank,
