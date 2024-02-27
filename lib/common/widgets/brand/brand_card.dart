@@ -9,14 +9,16 @@ class EcoBrandCard extends StatelessWidget {
   const EcoBrandCard({
     super.key,
     required this.showBorder,
+    this.onTap,
   });
 
   final bool showBorder;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: EcoRoundedContainer(
         padding: const EdgeInsets.all(EcoSizes.sm),
         showBorder: showBorder,

@@ -13,21 +13,22 @@ class SubCategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: EcoAppBar(
-        title: Text("Sports Shirts"),
+        title: Text("Sports Shirts",
+            style: Theme.of(context).textTheme.headlineSmall),
         showBackArrow: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsetsDirectional.all(EcoSizes.defaultSpace),
+          padding: const EdgeInsetsDirectional.all(EcoSizes.defaultSpace),
           child: Column(
             children: [
               /// Banner
-              EcoRoundedImage(
+              const EcoRoundedImage(
                 imageUrl: EcoImages.promoBanner1,
                 width: double.infinity,
                 applyImageRadius: true,
               ),
-              SizedBox(
+              const SizedBox(
                 height: EcoSizes.spaceBtwSections,
               ),
 
@@ -39,19 +40,19 @@ class SubCategoriesScreen extends StatelessWidget {
                     title: "Sport shirts",
                     onPressed: () {},
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: EcoSizes.spaceBtwItems,
                   ),
                   SizedBox(
                     height: 120,
                     child: ListView.separated(
                         itemCount: 4,
-                        separatorBuilder: (context, index) => SizedBox(
+                        separatorBuilder: (context, index) => const SizedBox(
                               width: EcoSizes.defaultSpace,
                             ),
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return EcoProductCardHorizontal();
+                          return const EcoProductCardHorizontal();
                         }),
                   ),
                 ],

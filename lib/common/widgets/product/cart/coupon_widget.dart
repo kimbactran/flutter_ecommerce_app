@@ -15,7 +15,7 @@ class EcoCouponCode extends StatelessWidget {
     return EcoRoundedContainer(
       showBorder: true,
       backgroundColor: darkMode ? EcoColors.dark : EcoColors.white,
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
           top: EcoSizes.sm,
           bottom: EcoSizes.sm,
           right: EcoSizes.sm,
@@ -24,7 +24,7 @@ class EcoCouponCode extends StatelessWidget {
         children: [
           Flexible(
               child: TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 hintText: 'Have a promo code? Enter here!',
                 focusedBorder: InputBorder.none,
                 enabledBorder: InputBorder.none,

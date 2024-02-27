@@ -41,11 +41,10 @@ class EcoProductCardHorizontal extends StatelessWidget {
               backgroundColor: darkMode ? EcoColors.dark : EcoColors.light,
               child: Stack(children: [
                 /// -- Thumbnail Image
-                SizedBox(
+                const SizedBox(
                     height: 120,
                     width: 120,
-                    child: const EcoRoundedImage(
-                        imageUrl: EcoImages.productImage1)),
+                    child: EcoRoundedImage(imageUrl: EcoImages.productImage1)),
 
                 /// -- Sale Tag
                 Positioned(
@@ -85,7 +84,7 @@ class EcoProductCardHorizontal extends StatelessWidget {
                     const EdgeInsets.only(top: EcoSizes.sm, left: EcoSizes.sm),
                 child: Column(
                   children: [
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         EcoProductTitleText(
@@ -101,7 +100,7 @@ class EcoProductCardHorizontal extends StatelessWidget {
                       ],
                     ),
 
-                    Spacer(),
+                    const Spacer(),
 
                     /// Price Row
                     Row(

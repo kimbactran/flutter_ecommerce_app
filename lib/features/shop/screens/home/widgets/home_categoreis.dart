@@ -39,7 +39,7 @@ class EcoHomeCategories extends StatelessWidget {
                   return EcoVerticalImageText(
                     image: EcoImages.shoeIcon,
                     title: "Shoes",
-                    onTap: () => Get.to(() => SubCategoriesScreen()),
+                    onTap: () => Get.to(() => const SubCategoriesScreen()),
                   );
                 }),
           )
