@@ -82,4 +82,10 @@ class EcoImages {
   // Success
   static const String successPayment =
       "assets/images/success_image/payment_success.png";
+  static const String successfullyRegisterAnimation =
+      "assets/images/success_image/beam-check-mark-in-a-circle.gif";
+
+  // Loader
+  static const String loaderAnimation =
+      "assets/images/loading/loader_animation.gif";
 }

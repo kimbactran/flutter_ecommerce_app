@@ -30,18 +30,7 @@ class SignUpScreen extends StatelessWidget {
               ),
               // Form
               const EcoSignUpForm(),
-              // Term&Condition checkout
-              const EcoTermsAndConditionCheckbox(),
-              const SizedBox(
-                height: EcoSizes.spaceBtwSections,
-              ),
-              // Sign Up Button
-              // Create Account Button
-              SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                      onPressed: () => Get.to(() => const VerifyEmailScreen()),
-                      child: const Text(EcoTexts.createAccount))),
+
               const SizedBox(
                 height: EcoSizes.spaceBtwSections,
               ),

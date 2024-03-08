@@ -62,4 +62,7 @@ class EcoTexts {
       "Your account successfully created!";
   static const String yourAccountCreatedSubtitle =
       "Welcome to Your Ultimate Shopping Destination: Your Account is Created, NoLeash the Joy of Seamless Online Shopping!";
+  static const String youAccountCreatedTitle =
+      "Your account successfully created!";
+static const String youAccountCreatedSubTitle = "Welcome to Your Ultimate Shopping Destination: Your Account is Created, Unleash the Joy of Seamless Online Shopping!";
 }

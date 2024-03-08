@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/bindings/general_bindings.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: EcoAppTheme.lightTheme,
       darkTheme: EcoAppTheme.darkTheme,
+      initialBinding: GeneralBindings(),
     );
   }
 }

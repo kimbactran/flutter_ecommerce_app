@@ -37,9 +37,12 @@ dependencies:
   http: ^1.2.0
   intl: ^0.19.0
   logger: ^2.0.2+1
+  lottie: ^3.1.0
   url_launcher: ^6.2.4
-  flutter_native_splash: ^2.3.10
+  connectivity_plus: ^5.0.2
   smooth_page_indicator: ^1.1.0
+  flutter_native_splash: ^2.3.10
+
 
   # Icons
   iconsax: ^0.0.8
@@ -58,6 +61,8 @@ dependencies:
 
   # Firebase
   firebase_core: ^2.25.4
+  firebase_auth: ^4.17.6
+  cloud_firestore: ^4.15.6
 
 
 
@@ -73,6 +78,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.1
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -96,6 +102,7 @@ flutter:
     - assets/images/products/
     - assets/images/users/
     - assets/images/success_image/
+    - assets/images/loading/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
