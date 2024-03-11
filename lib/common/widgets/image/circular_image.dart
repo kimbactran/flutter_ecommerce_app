@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce_app/common/widgets/shimmer/shimmer.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
@@ -40,13 +42,28 @@ class EcoCircularImage extends StatelessWidget {
           color:
               backgroundColor ?? (darkMode ? EcoColors.black : EcoColors.white),
           borderRadius: BorderRadius.circular(100)),
-      child: Center(
-        child: Image(
-          image: isNetworkImage
-              ? NetworkImage(imageUrl)
-              : AssetImage(imageUrl) as ImageProvider,
-          fit: fit,
-          color: overlayColor ?? (darkMode ? EcoColors.light : EcoColors.dark),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(100),
+        child: Center(
+          child: isNetworkImage
+              ? CachedNetworkImage(
+                  fit: fit,
+                  color: overlayColor,
+                  imageUrl: imageUrl,
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      const EcoShimmerEffect(
+                    width: 55,
+                    height: 55,
+                    radius: 55,
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                )
+              : Image(
+                  image: AssetImage(imageUrl),
+                  fit: fit,
+                  color: overlayColor ??
+                      (darkMode ? EcoColors.light : EcoColors.dark),
+                ),
         ),
       ),
     );

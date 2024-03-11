@@ -1,9 +1,9 @@
 import 'package:ecommerce_app/common/widgets/loaders/loaders.dart';
 import 'package:ecommerce_app/data/repositories/authentication/authentication_repository.dart';
+import 'package:ecommerce_app/features/personalization/controller/user_controller.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/networks/network_manager.dart';
 import 'package:ecommerce_app/utils/popups/full_screen_loader.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -15,8 +15,16 @@ class LoginController extends GetxController {
   final localStorage = GetStorage();
   final email = TextEditingController();
   final password = TextEditingController();
+  final userController = Get.put(UserController());
 
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+
+  @override
+  void onInit() {
+    email.text = localStorage.read('REMEMBER_ME_EMAIL');
+    password.text = localStorage.read('REMEMBER_ME_PASSWORD');
+    super.onInit();
+  }
 
   // Email and Password SignIn
   Future<void> emailAndPasswordSignIn() async {
@@ -48,6 +56,8 @@ class LoginController extends GetxController {
       final userCredential = await AuthenticationRepository.instance
           .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
+      // Save user
+
       // Remove loader
       EcoFullScreenLoader.stopLoading();
 
@@ -56,6 +66,35 @@ class LoginController extends GetxController {
     } catch (e) {
       EcoFullScreenLoader.stopLoading();
       EcoLoader.errorSnackBar(title: 'On Snap', message: e.toString());
+    }
+  }
+
+  // Google SignIn Authentication
+  Future<void> googleSignIn() async {
+    try {
+      // Start Loading
+      EcoFullScreenLoader.openLoadingDialog(
+          'Logging you in...', EcoImages.docerAnimation);
+      // Check Internet Connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        EcoFullScreenLoader.stopLoading();
+        return;
+      }
+      // Google Authentication
+      final userCredentials =
+          await AuthenticationRepository.instance.signInWithGoogle();
+
+      // Save User Record
+      await userController.saveUserRecord(userCredentials);
+
+      // Remove Loader
+      EcoFullScreenLoader.stopLoading();
+
+      // Redirect
+      AuthenticationRepository.instance.screenRedirect();
+    } catch (e) {
+      EcoLoader.errorSnackBar(title: 'On Snap!', message: e.toString());
     }
   }
 }

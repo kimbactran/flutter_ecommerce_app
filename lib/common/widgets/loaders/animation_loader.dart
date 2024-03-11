@@ -17,7 +17,7 @@ class EcoAnimationLoaderWidget extends StatelessWidget {
       {super.key,
       required this.text,
       required this.animation,
-      this.showAction = true,
+      this.showAction = false,
       this.actionText,
       this.onActionPressed});
 
@@ -33,7 +33,7 @@ class EcoAnimationLoaderWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Lottie.asset(animation,
+          Image.asset(animation,
               width: MediaQuery.of(context).size.width *
                   0.8), // Display Lottie animation
           const SizedBox(
@@ -49,6 +49,7 @@ class EcoAnimationLoaderWidget extends StatelessWidget {
           ),
           showAction
               ? SizedBox(
+                  width: 250,
                   child: OutlinedButton(
                     onPressed: onActionPressed,
                     style: OutlinedButton.styleFrom(
@@ -61,7 +62,6 @@ class EcoAnimationLoaderWidget extends StatelessWidget {
                           .apply(color: EcoColors.light),
                     ),
                   ),
-                  width: 250,
                 )
               : const SizedBox(),
         ],

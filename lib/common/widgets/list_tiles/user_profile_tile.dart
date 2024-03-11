@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/common/widgets/image/circular_image.dart';
+import 'package:ecommerce_app/features/personalization/controller/user_controller.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ class EcoUserProfileTile extends StatelessWidget {
   final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return ListTile(
       leading: const EcoCircularImage(
         imageUrl: EcoImages.userDefault,
@@ -25,14 +27,14 @@ class EcoUserProfileTile extends StatelessWidget {
         height: 50,
       ),
       title: Text(
-        'Kiba Trn',
+        controller.user.value.fullName,
         style: Theme.of(context)
             .textTheme
             .headlineSmall!
             .apply(color: EcoColors.white),
       ),
       subtitle: Text(
-        'kimbactrancutebaby@gmail.com',
+        controller.user.value.email,
         style: Theme.of(context)
             .textTheme
             .bodyMedium!

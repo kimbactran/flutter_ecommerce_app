@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/common/widgets/loaders/loaders.dart';
 import 'package:ecommerce_app/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecommerce_app/data/repositories/user/user_repository.dart';
-import 'package:ecommerce_app/features/authentication/modals/user_model.dart';
+import 'package:ecommerce_app/features/personalization/models/user_model.dart';
 import 'package:ecommerce_app/features/authentication/screens/signup/verify_email.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/networks/network_manager.dart';
@@ -66,6 +66,9 @@ class SignupController extends GetxController {
 
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecord(newUser);
+
+      // Remove Loader
+      EcoFullScreenLoader.stopLoading();
       // Show Success Message
       EcoLoader.successSnackBar(
           title: 'Congratulation',
