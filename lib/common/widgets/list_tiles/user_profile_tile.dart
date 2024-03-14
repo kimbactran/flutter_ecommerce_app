@@ -21,8 +21,8 @@ class EcoUserProfileTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return ListTile(
-      leading: const EcoCircularImage(
-        imageUrl: EcoImages.userDefault,
+      leading: EcoCircularImage(
+        imageUrl: controller.user.value.profilePicture,
         width: 50,
         height: 50,
       ),

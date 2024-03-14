@@ -52,7 +52,8 @@ class UpdateNameController extends GetxController {
         'FirstName': firstName.text.trim(),
         'LastName': lastName.text.trim()
       };
-      await userRepository.updateSingleField(name);
+      await userRepository.updateSingleField(
+          name, userController.user.value.id);
 
       // Update the Rx User value
       userController.user.value.firstName = firstName.text.trim();

@@ -15,7 +15,7 @@ class EcoCircularImage extends StatelessWidget {
     this.backgroundColor,
     this.overlayColor,
     this.fit = BoxFit.cover,
-    this.padding = const EdgeInsets.all(EcoSizes.sm),
+    this.padding = const EdgeInsets.all(0),
     this.isNetworkImage = false,
     this.onPressed,
   });

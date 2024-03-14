@@ -24,7 +24,7 @@ class CategoryModel {
     return {
       'Name': name,
       'Image': image,
-      'ParentId': parentId,
+      ' ': parentId,
       'IsFeatured': isFeatured,
     };
   }

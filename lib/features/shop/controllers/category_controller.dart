@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/common/widgets/loaders/loaders.dart';
+import 'package:ecommerce_app/data/data/dummy_data.dart';
 import 'package:ecommerce_app/data/repositories/categories/category_repository.dart';
 import 'package:ecommerce_app/features/shop/models/category_model.dart';
 import 'package:get/get.dart';
@@ -21,6 +22,7 @@ class CategoryController extends GetxController {
     try {
       // Show loader while loading categories
       isLoading.value = true;
+      // CategoryRepository.instance.uploadDummyData(EcoDummyData.categories);
 
       // Fetch categories form data source (Firestore, API, etc.)
       final categories = await _categoryRepository.getAllCategories();
@@ -37,6 +39,7 @@ class CategoryController extends GetxController {
       EcoLoader.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     } finally {
       // Remove loader
+      isLoading.value = false;
     }
   }
 

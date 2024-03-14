@@ -2,6 +2,7 @@ import 'package:ecommerce_app/common/layouts/grid_layout.dart';
 import 'package:ecommerce_app/common/widgets/brand/brand_showcase.dart';
 import 'package:ecommerce_app/common/widgets/product/product_cards/product_card_vertical.dart';
 import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
+import 'package:ecommerce_app/features/shop/models/category_model.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,10 @@ import 'package:flutter/material.dart';
 class EcoTabCategory extends StatelessWidget {
   const EcoTabCategory({
     super.key,
+    required this.category,
   });
+
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {

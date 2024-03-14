@@ -181,7 +181,7 @@ class UserController extends GetxController {
 
         // Update User Image Record
         Map<String, dynamic> json = {'ProfilePicture': imageUrl};
-        await userRepository.updateSingleField(json);
+        await userRepository.updateSingleField(json, user.value.id);
 
         user.value.profilePicture = imageUrl;
         user.refresh();
