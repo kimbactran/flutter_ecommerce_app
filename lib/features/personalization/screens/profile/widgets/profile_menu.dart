@@ -33,7 +33,11 @@ class EcoProfileMenu extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
         ),
-        Icon(icon, size: 18),
+        IconButton(
+          icon: Icon(icon),
+          iconSize: 18,
+          onPressed: onPressed,
+        ),
       ],
     );
   }
