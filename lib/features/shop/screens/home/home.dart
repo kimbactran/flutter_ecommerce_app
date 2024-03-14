@@ -53,14 +53,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   /// -- Promo Slider
-                  const EcoPromoSlider(
-                    banners: [
-                      EcoImages.promoBanner1,
-                      EcoImages.promoBanner2,
-                      EcoImages.promoBanner3,
-                      EcoImages.promoBanner3,
-                    ],
-                  ),
+                  const EcoPromoSlider(),
                   const SizedBox(
                     height: EcoSizes.spaceBtwSections,
                   ),
