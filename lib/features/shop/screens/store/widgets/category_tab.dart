@@ -3,6 +3,7 @@ import 'package:ecommerce_app/common/widgets/brand/brand_showcase.dart';
 import 'package:ecommerce_app/common/widgets/product/product_cards/product_card_vertical.dart';
 import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
 import 'package:ecommerce_app/features/shop/models/category_model.dart';
+import 'package:ecommerce_app/features/shop/models/product_model.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,9 @@ class EcoTabCategory extends StatelessWidget {
               const SizedBox(height: EcoSizes.spaceBtwItems),
               EcoGridLayout(
                 itemCount: 6,
-                itemBuilder: (_, index) => const EcoProductCardVertical(),
+                itemBuilder: (_, index) => EcoProductCardVertical(
+                  product: ProductModel.empty(),
+                ),
               )
 
               /// -- Products

@@ -2,15 +2,9 @@ import 'package:ecommerce_app/common/widgets/loaders/loaders.dart';
 import 'package:ecommerce_app/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecommerce_app/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
-import 'package:ecommerce_app/utils/exceptions/firebase_auth_exceptions.dart';
-import 'package:ecommerce_app/utils/exceptions/firebase_exceptions.dart';
-import 'package:ecommerce_app/utils/exceptions/format_exceptions.dart';
-import 'package:ecommerce_app/utils/exceptions/platform_exceptions.dart';
 import 'package:ecommerce_app/utils/networks/network_manager.dart';
 import 'package:ecommerce_app/utils/popups/full_screen_loader.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class ForgetPasswordController extends GetxController {

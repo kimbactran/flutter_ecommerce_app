@@ -2,12 +2,13 @@ import 'package:ecommerce_app/common/layouts/grid_layout.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:ecommerce_app/common/widgets/product/product_cards/product_card_vertical.dart';
+import 'package:ecommerce_app/common/widgets/shimmer/vertical_product_shimmer.dart';
 import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
+import 'package:ecommerce_app/features/shop/controllers/product/product_controller.dart';
 import 'package:ecommerce_app/features/shop/screens/all_products/all_products.dart';
 import 'package:ecommerce_app/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:ecommerce_app/features/shop/screens/home/widgets/home_categoreis.dart';
 import 'package:ecommerce_app/features/shop/screens/home/widgets/promo_slider.dart';
-import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,6 +18,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -68,10 +70,23 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   /// -- Popular Products
-                  EcoGridLayout(
-                    itemCount: 5,
-                    itemBuilder: (_, index) => const EcoProductCardVertical(),
-                  ),
+                  Obx(() {
+                    if (controller.isLoading.value)
+                      return const EcoVerticalProductShimmer();
+                    if (controller.featuredProducts.isEmpty) {
+                      return Center(
+                        child: Text(
+                          'No data Found!',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      );
+                    }
+                    return EcoGridLayout(
+                      itemCount: controller.featuredProducts.length,
+                      itemBuilder: (_, index) => EcoProductCardVertical(
+                          product: controller.featuredProducts[index]),
+                    );
+                  }),
                 ],
               ),
             )

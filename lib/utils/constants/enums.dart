@@ -12,5 +12,7 @@ enum PaymentMethods {
   vnqr
 }
 
+enum ProductType { single, variable }
+
 //// List of Enums
 /// They cannot be created inside a class

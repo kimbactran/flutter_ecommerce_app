@@ -2,6 +2,7 @@ import 'package:ecommerce_app/common/layouts/grid_layout.dart';
 import 'package:ecommerce_app/common/widgets/appbar/appbar.dart';
 import 'package:ecommerce_app/common/widgets/icons/circular_icon.dart';
 import 'package:ecommerce_app/common/widgets/product/product_cards/product_card_vertical.dart';
+import 'package:ecommerce_app/features/shop/models/product_model.dart';
 import 'package:ecommerce_app/navigation_menu.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,9 @@ class FavouriteScreen extends StatelessWidget {
           child: Column(children: [
             EcoGridLayout(
                 itemCount: 7,
-                itemBuilder: (_, index) => const EcoProductCardVertical())
+                itemBuilder: (_, index) => EcoProductCardVertical(
+                      product: ProductModel.empty(),
+                    ))
           ]),
         ),
       ),

@@ -3,7 +3,6 @@ import 'package:ecommerce_app/common/widgets/custom_shapes/containers/circular_c
 import 'package:ecommerce_app/common/widgets/image/rounded_image.dart';
 import 'package:ecommerce_app/common/widgets/shimmer/shimmer.dart';
 import 'package:ecommerce_app/features/shop/controllers/banner_controller.dart';
-import 'package:ecommerce_app/features/shop/controllers/home_controller.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';

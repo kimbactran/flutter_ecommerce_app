@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/common/widgets/loaders/loaders.dart';
-import 'package:ecommerce_app/data/data/dummy_data.dart';
 import 'package:ecommerce_app/data/repositories/categories/category_repository.dart';
 import 'package:ecommerce_app/features/shop/models/category_model.dart';
 import 'package:get/get.dart';

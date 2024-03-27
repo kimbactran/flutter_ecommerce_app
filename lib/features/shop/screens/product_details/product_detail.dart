@@ -1,10 +1,12 @@
 import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
+import 'package:ecommerce_app/features/shop/models/product_model.dart';
 import 'package:ecommerce_app/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
 import 'package:ecommerce_app/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:ecommerce_app/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:ecommerce_app/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:ecommerce_app/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:ecommerce_app/features/shop/screens/product_reviews/product_reviews.dart';
+import 'package:ecommerce_app/utils/constants/enums.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +14,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  const ProductDetailScreen({super.key, required this.product});
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,9 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             /// 1 - Product Image Slider
-            const EcoProductImageSlider(),
+            EcoProductImageSlider(
+              product: product,
+            ),
 
             /// 2 - Product Details
             Padding(
@@ -35,13 +40,19 @@ class ProductDetailScreen extends StatelessWidget {
                 const EcoRatingAndShare(),
 
                 /// - Price, Title, Stock & Brand
-                const EcoProductMetaData(),
+                EcoProductMetaData(
+                  product: product,
+                ),
 
                 /// Attributes
-                const EcoProductAttribute(),
-                const SizedBox(
-                  height: EcoSizes.spaceBtwSections,
-                ),
+                if (product.productType == ProductType.variable.toString())
+                  EcoProductAttribute(
+                    product: product,
+                  ),
+                if (product.productType == ProductType.variable.toString())
+                  const SizedBox(
+                    height: EcoSizes.spaceBtwSections,
+                  ),
 
                 /// CheckOut Button
                 SizedBox(
@@ -55,16 +66,16 @@ class ProductDetailScreen extends StatelessWidget {
                 const SizedBox(
                   height: EcoSizes.spaceBtwItems,
                 ),
-                const ReadMoreText(
-                  'This is a Product description for Acer less vest. There are more things that can be added but i am..',
+                ReadMoreText(
+                  product.description ?? '',
                   trimLines: 2,
                   trimMode: TrimMode.Line,
                   trimCollapsedText: ' Show more',
                   trimExpandedText: ' Less',
-                  moreStyle:
-                      TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-                  lessStyle:
-                      TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                  moreStyle: const TextStyle(
+                      fontSize: 14, fontWeight: FontWeight.w800),
+                  lessStyle: const TextStyle(
+                      fontSize: 14, fontWeight: FontWeight.w800),
                 ),
 
                 /// Reviews

@@ -1,7 +1,6 @@
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 /// A widget for displaying an animated loading indicator with optional text and action button
 class EcoAnimationLoaderWidget extends StatelessWidget {

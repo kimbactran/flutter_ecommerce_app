@@ -22,7 +22,6 @@ class EcoVerticalImageText extends StatelessWidget {
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    final darkMode = EcoHelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: onTap,
       child: Padding(
