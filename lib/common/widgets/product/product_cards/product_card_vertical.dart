@@ -44,8 +44,8 @@ class EcoProductCardVertical extends StatelessWidget {
           children: [
             /// Thumbnail, WishList Button, Discount Tag
             EcoRoundedContainer(
-              height: 180,
-              padding: const EdgeInsets.all(EcoSizes.sm),
+              height: 150,
+              padding: const EdgeInsets.all(0),
               backgroundColor: darkMode ? EcoColors.dark : EcoColors.light,
               child: Stack(children: [
                 /// -- Thumbnail Image
@@ -56,23 +56,24 @@ class EcoProductCardVertical extends StatelessWidget {
                 ),
 
                 /// -- Sale Tag
-                Positioned(
-                  top: 12,
-                  left: 10,
-                  child: EcoRoundedContainer(
-                    radius: EcoSizes.sm,
-                    backgroundColor: EcoColors.secondary.withOpacity(0.8),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: EcoSizes.sm, vertical: EcoSizes.xs),
-                    child: Text(
-                      '$salePercentage%',
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge!
-                          .apply(color: EcoColors.black),
+                if (salePercentage != null)
+                  Positioned(
+                    top: 12,
+                    left: 10,
+                    child: EcoRoundedContainer(
+                      radius: EcoSizes.sm,
+                      backgroundColor: EcoColors.secondary.withOpacity(0.8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: EcoSizes.sm, vertical: EcoSizes.xs),
+                      child: Text(
+                        '$salePercentage%',
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge!
+                            .apply(color: EcoColors.black),
+                      ),
                     ),
                   ),
-                ),
 
                 /// -- Favourite Icon Button
                 const Positioned(
@@ -91,7 +92,7 @@ class EcoProductCardVertical extends StatelessWidget {
 
             /// -- Details
             Padding(
-              padding: EdgeInsets.only(left: EcoSizes.sm),
+              padding: const EdgeInsets.only(left: EcoSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -99,7 +100,7 @@ class EcoProductCardVertical extends StatelessWidget {
                     title: product.title,
                     smallSize: true,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: EcoSizes.spaceBtwItems / 2,
                   ),
                   EcoBrandTitleWithVerifiedIcon(

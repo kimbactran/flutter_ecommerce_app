@@ -50,7 +50,7 @@ class ProductRepository extends GetxController {
     }
   }
 
-  // Get products based on the brand
+  // Get products based on the query
   Future<List<ProductModel>> fetchProductsByQuery(Query query) async {
     try {
       final querySnapshot = await query.get();
@@ -58,6 +58,36 @@ class ProductRepository extends GetxController {
           .map((doc) => ProductModel.fromQuerySnapshot(doc))
           .toList();
       return productList;
+    } on FirebaseException catch (e) {
+      throw EcoFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw EcoPlatformException(e.code).message;
+    } catch (e) {
+      final message = e.toString();
+      print(message);
+      throw 'Something went wrong when load products. Please try again.';
+    }
+  }
+
+  // Get Products based on the brand
+
+  Future<List<ProductModel>> getProductsForBrand(
+      {required String brandId, int limit = -1}) async {
+    try {
+      final querySnapshot = limit == -1
+          ? await _db
+              .collection('Products')
+              .where('Brand.Id', isEqualTo: brandId)
+              .get()
+          : await _db
+              .collection('Products')
+              .where('Brand.Id', isEqualTo: brandId)
+              .limit(limit)
+              .get();
+      final products = querySnapshot.docs
+          .map((doc) => ProductModel.fromSnapshot(doc))
+          .toList();
+      return products;
     } on FirebaseException catch (e) {
       throw EcoFirebaseException(e.code).message;
     } on PlatformException catch (e) {

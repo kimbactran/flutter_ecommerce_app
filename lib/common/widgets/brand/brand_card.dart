@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:ecommerce_app/common/widgets/image/circular_image.dart';
 import 'package:ecommerce_app/common/widgets/texts/brand_title_text_with_verified_icon.dart';
-import 'package:ecommerce_app/utils/constants/image_strings.dart';
+import 'package:ecommerce_app/features/shop/models/brand_model.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +10,10 @@ class EcoBrandCard extends StatelessWidget {
     super.key,
     required this.showBorder,
     this.onTap,
+    required this.brand,
   });
 
+  final BrandModel brand;
   final bool showBorder;
   final void Function()? onTap;
 
@@ -26,10 +28,10 @@ class EcoBrandCard extends StatelessWidget {
         child: Row(
           children: [
             /// -- Icon
-            const Flexible(
+            Flexible(
               child: EcoCircularImage(
-                isNetworkImage: false,
-                imageUrl: EcoImages.clothIcon,
+                isNetworkImage: true,
+                imageUrl: brand.image,
                 backgroundColor: Colors.transparent,
               ),
             ),
@@ -43,9 +45,9 @@ class EcoBrandCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const EcoBrandTitleWithVerifiedIcon(title: 'Nike'),
+                  EcoBrandTitleWithVerifiedIcon(title: brand.name),
                   Text(
-                    '246 products',
+                    '${brand.productCount}',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   )

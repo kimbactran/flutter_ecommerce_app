@@ -14,7 +14,7 @@ class ReAuthLoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return Scaffold(
-      appBar: EcoAppBar(
+      appBar: const EcoAppBar(
         showBackArrow: false,
         title: Text('Re-Authenticate User'),
       ),

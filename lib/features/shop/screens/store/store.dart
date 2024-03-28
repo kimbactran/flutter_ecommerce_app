@@ -4,9 +4,12 @@ import 'package:ecommerce_app/common/widgets/appbar/tabbar.dart';
 import 'package:ecommerce_app/common/widgets/brand/brand_card.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:ecommerce_app/common/widgets/product/cart/cart_menu_icon.dart';
+import 'package:ecommerce_app/common/widgets/shimmer/brand_shimmer.dart';
 import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
+import 'package:ecommerce_app/features/shop/controllers/brand_controller.dart';
 import 'package:ecommerce_app/features/shop/controllers/category_controller.dart';
 import 'package:ecommerce_app/features/shop/screens/brand/all_brands.dart';
+import 'package:ecommerce_app/features/shop/screens/brand/brand_products.dart';
 import 'package:ecommerce_app/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
@@ -19,6 +22,7 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final brandController = Get.put(BrandController());
     final darkMode = EcoHelperFunctions.isDarkMode(context);
     final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
@@ -70,14 +74,37 @@ class StoreScreen extends StatelessWidget {
                             height: EcoSizes.spaceBtwItems / 1.5,
                           ),
 
-                          EcoGridLayout(
-                              itemCount: 4,
-                              mainAxisExtent: 80,
-                              itemBuilder: (_, index) {
-                                return const EcoBrandCard(
-                                  showBorder: true,
-                                );
-                              })
+                          Obx(() {
+                            if (brandController.isLoading.value)
+                              return const EcoBrandsShimmer();
+
+                            if (brandController.featuredBrands.isEmpty) {
+                              return Center(
+                                child: Text(
+                                  'No Data Found!',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .apply(color: Colors.white),
+                                ),
+                              );
+                            }
+                            return EcoGridLayout(
+                                itemCount:
+                                    brandController.featuredBrands.length,
+                                mainAxisExtent: 80,
+                                itemBuilder: (_, index) {
+                                  final brand =
+                                      brandController.featuredBrands[index];
+                                  return EcoBrandCard(
+                                    brand: brand,
+                                    showBorder: true,
+                                    onTap: () => Get.to(() => BrandProducts(
+                                          brand: brand,
+                                        )),
+                                  );
+                                });
+                          })
                         ],
                       ),
                     ),

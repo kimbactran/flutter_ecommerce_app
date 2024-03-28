@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/common/widgets/brand/brand_card.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:ecommerce_app/features/shop/models/brand_model.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
@@ -26,8 +27,9 @@ class EcoBrandShowcase extends StatelessWidget {
       child: Column(
         /// Brand with Products Count
         children: [
-          const EcoBrandCard(
+          EcoBrandCard(
             showBorder: false,
+            brand: BrandModel.empty(),
           ),
 
           /// Brand top 3 product images

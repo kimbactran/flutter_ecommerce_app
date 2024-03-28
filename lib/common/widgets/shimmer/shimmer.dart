@@ -19,6 +19,7 @@ class EcoShimmerEffect extends StatelessWidget {
     final darkMode = EcoHelperFunctions.isDarkMode(context);
     return Shimmer.fromColors(
         baseColor: darkMode ? Colors.grey[850]! : Colors.grey[300]!,
+        highlightColor: darkMode ? Colors.grey[700]! : Colors.grey[100]!,
         child: Container(
           width: width,
           height: height,
@@ -26,7 +27,6 @@ class EcoShimmerEffect extends StatelessWidget {
             color: color ?? (darkMode ? EcoColors.darkGrey : EcoColors.white),
             borderRadius: BorderRadius.circular(radius),
           ),
-        ),
-        highlightColor: darkMode ? Colors.grey[700]! : Colors.grey[100]!);
+        ));
   }
 }

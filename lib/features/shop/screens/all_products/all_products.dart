@@ -27,7 +27,7 @@ class AllProducts extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(EcoSizes.defaultSpace),
+          padding: const EdgeInsets.all(EcoSizes.defaultSpace),
           child: FutureBuilder(
               future: featureMethod ?? controller.fetchProductsByQuery(query),
               builder: (context, snapshot) {
