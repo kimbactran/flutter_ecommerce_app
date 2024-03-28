@@ -27,7 +27,9 @@ class BrandProducts extends StatelessWidget {
               SizedBox(
                 height: EcoSizes.spaceBtwSections,
               ),
-              EcoSortableProduct(),
+              EcoSortableProduct(
+                products: [],
+              ),
             ],
           ),
         ),

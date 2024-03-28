@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_app/common/layouts/grid_layout.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/search_container.dart';
@@ -63,7 +64,10 @@ class HomeScreen extends StatelessWidget {
                   /// -- Heading
                   EcoSectionHeading(
                     title: 'Popular Products',
-                    onPressed: () => Get.to(() => const AllProducts()),
+                    onPressed: () => Get.to(() => AllProducts(
+                          title: 'Popular Products',
+                          featureMethod: controller.fetchAllFeaturedProducts(),
+                        )),
                   ),
                   const SizedBox(
                     height: EcoSizes.spaceBtwItems,
