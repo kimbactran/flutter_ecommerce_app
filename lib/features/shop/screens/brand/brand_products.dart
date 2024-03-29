@@ -39,7 +39,7 @@ class BrandProducts extends StatelessWidget {
                 height: EcoSizes.spaceBtwSections,
               ),
               FutureBuilder(
-                  future: controller.getBrandProducts(brand.id),
+                  future: controller.getBrandProducts(brandId: brand.id),
                   builder: (context, snapshot) {
                     // Handle Loader, No Record, Or Error Message
                     const loader = EcoVerticalProductShimmer();

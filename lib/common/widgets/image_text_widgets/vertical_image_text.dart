@@ -32,7 +32,7 @@ class EcoVerticalImageText extends StatelessWidget {
             EcoCircularImage(
               imageUrl: image,
               fit: BoxFit.fitWidth,
-              padding: EdgeInsets.all(EcoSizes.sm * 1.4),
+              padding: const EdgeInsets.all(EcoSizes.sm * 1.4),
               isNetworkImage: isNetworkImage,
               backgroundColor: backgroundColor,
               overlayColor: EcoHelperFunctions.isDarkMode(context)
