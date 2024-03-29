@@ -2,6 +2,7 @@ import 'package:ecommerce_app/common/widgets/appbar/appbar.dart';
 import 'package:ecommerce_app/common/widgets/image/rounded_image.dart';
 import 'package:ecommerce_app/common/widgets/product/product_cards/product_card_horizontal.dart';
 import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
+import 'package:ecommerce_app/features/shop/models/product_model.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,9 @@ class SubCategoriesScreen extends StatelessWidget {
                             ),
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return const EcoProductCardHorizontal();
+                          return EcoProductCardHorizontal(
+                            product: ProductModel.empty(),
+                          );
                         }),
                   ),
                 ],

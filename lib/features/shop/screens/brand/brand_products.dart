@@ -7,7 +7,6 @@ import 'package:ecommerce_app/features/shop/models/brand_model.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/cloud_helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class BrandProducts extends StatelessWidget {
   const BrandProducts({super.key, required this.brand});

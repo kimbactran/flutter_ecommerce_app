@@ -3,7 +3,6 @@ import 'package:ecommerce_app/common/widgets/shimmer/boxes_shimmer.dart';
 import 'package:ecommerce_app/common/widgets/shimmer/list_tile_shimmer.dart';
 import 'package:ecommerce_app/features/shop/controllers/brand_controller.dart';
 import 'package:ecommerce_app/features/shop/models/category_model.dart';
-import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/cloud_helper_functions.dart';
 import 'package:flutter/material.dart';

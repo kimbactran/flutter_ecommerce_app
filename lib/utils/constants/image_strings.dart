@@ -90,4 +90,6 @@ class EcoImages {
       "assets/images/loading/loader_animation.gif";
   static const String docerAnimation =
       "assets/images/loading/loading_animated.gif";
+  static const String pencilAnimation =
+      "assets/images/loading/empty_cart_animated.gif";
 }

@@ -43,7 +43,7 @@ class EcoBrandShowcase extends StatelessWidget {
             /// Brand top 3 product images
             Row(
               children: images
-                  .map((image) => brandTopProductImageWiget(image, context))
+                  .map((image) => brandTopProductImageWidget(image, context))
                   .toList(),
             )
           ],
@@ -52,7 +52,7 @@ class EcoBrandShowcase extends StatelessWidget {
     );
   }
 
-  Widget brandTopProductImageWiget(String image, context) {
+  Widget brandTopProductImageWidget(String image, context) {
     final darkMode = EcoHelperFunctions.isDarkMode(context);
 
     return Expanded(

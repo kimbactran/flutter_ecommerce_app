@@ -1,14 +1,13 @@
 import 'package:ecommerce_app/common/styles/shadows.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:ecommerce_app/common/widgets/icons/circular_icon.dart';
 import 'package:ecommerce_app/common/widgets/image/rounded_image.dart';
+import 'package:ecommerce_app/common/widgets/product/favourite_icon/favourite_icon.dart';
 import 'package:ecommerce_app/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:ecommerce_app/common/widgets/texts/product_price_text.dart';
 import 'package:ecommerce_app/common/widgets/texts/product_title_text.dart';
 import 'package:ecommerce_app/features/shop/models/product_model.dart';
 import 'package:ecommerce_app/features/shop/screens/product_details/product_detail.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
-import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,9 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class EcoProductCardHorizontal extends StatelessWidget {
-  const EcoProductCardHorizontal({super.key});
+  const EcoProductCardHorizontal({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class EcoProductCardHorizontal extends StatelessWidget {
     /// Container with side paddings, color, edges, radius and shadow.
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(
-            product: ProductModel.empty(),
+            product: product,
           )),
       child: Container(
         width: 310,
@@ -44,10 +45,13 @@ class EcoProductCardHorizontal extends StatelessWidget {
               backgroundColor: darkMode ? EcoColors.dark : EcoColors.light,
               child: Stack(children: [
                 /// -- Thumbnail Image
-                const SizedBox(
+                SizedBox(
                     height: 120,
                     width: 120,
-                    child: EcoRoundedImage(imageUrl: EcoImages.productImage1)),
+                    child: EcoRoundedImage(
+                      imageUrl: product.thumbnail,
+                      isNetworkImage: true,
+                    )),
 
                 /// -- Sale Tag
                 Positioned(
@@ -68,14 +72,10 @@ class EcoProductCardHorizontal extends StatelessWidget {
                 ),
 
                 /// -- Favourite Icon Button
-                const Positioned(
-                  top: 0,
-                  right: 0,
-                  child: EcoCircularIcon(
-                    icon: Iconsax.heart5,
-                    color: Colors.red,
-                  ),
-                )
+                Positioned(
+                    top: 0,
+                    right: 0,
+                    child: EcoFavouriteIcon(productId: product.id))
               ]),
             ),
 

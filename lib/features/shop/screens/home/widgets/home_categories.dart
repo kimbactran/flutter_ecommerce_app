@@ -32,8 +32,9 @@ class EcoHomeCategories extends StatelessWidget {
 
           /// --- Categories
           Obx(() {
-            if (categoryController.isLoading.value)
+            if (categoryController.isLoading.value) {
               return const EcoCategoryShimmer();
+            }
 
             if (categoryController.featuredCategories.isEmpty) {
               return Center(

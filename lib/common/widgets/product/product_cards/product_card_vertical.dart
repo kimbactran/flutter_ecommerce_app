@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/common/styles/shadows.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:ecommerce_app/common/widgets/icons/circular_icon.dart';
 import 'package:ecommerce_app/common/widgets/image/rounded_image.dart';
+import 'package:ecommerce_app/common/widgets/product/favourite_icon/favourite_icon.dart';
 import 'package:ecommerce_app/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:ecommerce_app/common/widgets/texts/product_price_text.dart';
 import 'package:ecommerce_app/common/widgets/texts/product_title_text.dart';
@@ -76,12 +76,11 @@ class EcoProductCardVertical extends StatelessWidget {
                   ),
 
                 /// -- Favourite Icon Button
-                const Positioned(
+                Positioned(
                   top: 0,
                   right: 0,
-                  child: EcoCircularIcon(
-                    icon: Iconsax.heart5,
-                    color: Colors.red,
+                  child: EcoFavouriteIcon(
+                    productId: product.id,
                   ),
                 )
               ]),

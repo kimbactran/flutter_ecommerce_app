@@ -7,7 +7,7 @@ import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
 import 'package:ecommerce_app/features/shop/controllers/product/product_controller.dart';
 import 'package:ecommerce_app/features/shop/screens/all_products/all_products.dart';
 import 'package:ecommerce_app/features/shop/screens/home/widgets/home_appbar.dart';
-import 'package:ecommerce_app/features/shop/screens/home/widgets/home_categoreis.dart';
+import 'package:ecommerce_app/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:ecommerce_app/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -74,8 +74,9 @@ class HomeScreen extends StatelessWidget {
 
                   /// -- Popular Products
                   Obx(() {
-                    if (controller.isLoading.value)
+                    if (controller.isLoading.value) {
                       return const EcoVerticalProductShimmer();
+                    }
                     if (controller.featuredProducts.isEmpty) {
                       return Center(
                         child: Text(

@@ -83,7 +83,6 @@ class EcoCloudHelperFunctions {
     } on PlatformException catch (e) {
       throw EcoPlatformException(e.code).message;
     } catch (e) {
-      final message = e.toString();
       throw 'Something went wrong. Please try again.';
     }
   }
