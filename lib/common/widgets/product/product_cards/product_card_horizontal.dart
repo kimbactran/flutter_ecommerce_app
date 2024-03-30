@@ -5,9 +5,11 @@ import 'package:ecommerce_app/common/widgets/product/favourite_icon/favourite_ic
 import 'package:ecommerce_app/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:ecommerce_app/common/widgets/texts/product_price_text.dart';
 import 'package:ecommerce_app/common/widgets/texts/product_title_text.dart';
+import 'package:ecommerce_app/features/shop/controllers/product/product_controller.dart';
 import 'package:ecommerce_app/features/shop/models/product_model.dart';
 import 'package:ecommerce_app/features/shop/screens/product_details/product_detail.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
+import 'package:ecommerce_app/utils/constants/enums.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +24,9 @@ class EcoProductCardHorizontal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final darkMode = EcoHelperFunctions.isDarkMode(context);
+    final controller = ProductController.instance;
+    final salePercentage =
+        controller.calculateSalePercentage(product.price, product.salePrice);
 
     /// Container with side paddings, color, edges, radius and shadow.
     return GestureDetector(
@@ -54,22 +59,23 @@ class EcoProductCardHorizontal extends StatelessWidget {
                     )),
 
                 /// -- Sale Tag
-                Positioned(
-                  top: 12,
-                  child: EcoRoundedContainer(
-                    radius: EcoSizes.sm,
-                    backgroundColor: EcoColors.secondary.withOpacity(0.8),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: EcoSizes.sm, vertical: EcoSizes.xs),
-                    child: Text(
-                      '25%',
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge!
-                          .apply(color: EcoColors.black),
+                if (salePercentage != null)
+                  Positioned(
+                    top: 12,
+                    child: EcoRoundedContainer(
+                      radius: EcoSizes.sm,
+                      backgroundColor: EcoColors.secondary.withOpacity(0.8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: EcoSizes.sm, vertical: EcoSizes.xs),
+                      child: Text(
+                        '$salePercentage%',
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge!
+                            .apply(color: EcoColors.black),
+                      ),
                     ),
                   ),
-                ),
 
                 /// -- Favourite Icon Button
                 Positioned(
@@ -87,18 +93,18 @@ class EcoProductCardHorizontal extends StatelessWidget {
                     const EdgeInsets.only(top: EcoSizes.sm, left: EcoSizes.sm),
                 child: Column(
                   children: [
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         EcoProductTitleText(
-                          title: "Acer aspire 7 A715-76-5",
+                          title: product.title,
                           smallSize: true,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: EcoSizes.spaceBtwItems / 2,
                         ),
                         EcoBrandTitleWithVerifiedIcon(
-                          title: "Acer",
+                          title: product.brand!.name,
                         ),
                       ],
                     ),
@@ -111,10 +117,34 @@ class EcoProductCardHorizontal extends StatelessWidget {
                       children: [
                         /// Price
                         ///
-                        const Flexible(
-                          child: EcoProductPriceText(
-                            price: '80.5',
-                            isLarge: false,
+                        Flexible(
+                          child: Column(
+                            children: [
+                              if (product.productType ==
+                                      ProductType.single.toString() &&
+                                  product.salePrice > 0)
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: EcoSizes.sm),
+                                  child: Text(
+                                    product.price.toString(),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium!
+                                        .apply(
+                                            decoration:
+                                                TextDecoration.lineThrough),
+                                  ),
+                                ),
+                              // Price, Show sale price as main price if sale exist.
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: EcoSizes.sm),
+                                child: EcoProductPriceText(
+                                  price: controller.getProductPrice(product),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
 
@@ -137,7 +167,7 @@ class EcoProductCardHorizontal extends StatelessWidget {
                               ))),
                         )
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),

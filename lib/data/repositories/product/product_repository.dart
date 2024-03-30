@@ -104,26 +104,17 @@ class ProductRepository extends GetxController {
   Future<List<ProductModel>> getProductsForCategory(
       {required String categoryId, int limit = -1}) async {
     try {
-      QuerySnapshot productCategoryQuery = limit == -1
+      final querySnapshot = limit == -1
           ? await _db
-              .collection('ProductCategory')
+              .collection('Products')
               .where('CategoryId', isEqualTo: categoryId)
               .get()
           : await _db
-              .collection('ProductCategory')
+              .collection('Products')
               .where('CategoryId', isEqualTo: categoryId)
               .limit(limit)
               .get();
-      // Extract productIds from the document
-      List<String> productIds = productCategoryQuery.docs
-          .map((doc) => doc['ProductId'] as String)
-          .toList();
-      // Query to get all documents where the productId is in the list of productsId
-      final productQuery = await _db
-          .collection('Products')
-          .where(FieldPath.documentId, whereIn: productIds)
-          .get();
-      List<ProductModel> products = productQuery.docs
+      final products = querySnapshot.docs
           .map((doc) => ProductModel.fromSnapshot(doc))
           .toList();
       return products;
@@ -134,7 +125,7 @@ class ProductRepository extends GetxController {
     } catch (e) {
       final message = e.toString();
       print(message);
-      throw 'Something went wrong when load products. Please try again.';
+      throw 'Something went wrong when load products for category. Please try again.';
     }
   }
 

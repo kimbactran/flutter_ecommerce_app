@@ -60,7 +60,8 @@ class EcoHomeCategories extends StatelessWidget {
                       isNetworkImage: true,
                       image: category.image,
                       title: category.name,
-                      onTap: () => Get.to(() => const SubCategoriesScreen()),
+                      onTap: () =>
+                          Get.to(() => SubCategoriesScreen(category: category)),
                     );
                   }),
             );

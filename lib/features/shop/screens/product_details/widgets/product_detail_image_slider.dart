@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_app/common/widgets/appbar/appbar.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
-import 'package:ecommerce_app/common/widgets/icons/circular_icon.dart';
 import 'package:ecommerce_app/common/widgets/image/rounded_image.dart';
+import 'package:ecommerce_app/common/widgets/product/favourite_icon/favourite_icon.dart';
 import 'package:ecommerce_app/features/shop/controllers/product/images_controller.dart';
 import 'package:ecommerce_app/features/shop/models/product_model.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
@@ -10,7 +10,6 @@ import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
 class EcoProductImageSlider extends StatelessWidget {
   const EcoProductImageSlider({
@@ -34,7 +33,7 @@ class EcoProductImageSlider extends StatelessWidget {
             SizedBox(
                 height: 400,
                 child: Padding(
-                  padding: EdgeInsets.all(EcoSizes.productImageRadius),
+                  padding: const EdgeInsets.all(EcoSizes.productImageRadius),
                   child: Center(child: Obx(() {
                     final image = controller.selectedProductImage.value;
                     return GestureDetector(
@@ -85,15 +84,9 @@ class EcoProductImageSlider extends StatelessWidget {
                     itemCount: images.length),
               ),
             ),
-            const EcoAppBar(
+            EcoAppBar(
               showBackArrow: true,
-              actions: [
-                EcoCircularIcon(
-                  icon: Iconsax.heart5,
-                  size: 18,
-                  color: Colors.red,
-                )
-              ],
+              actions: [EcoFavouriteIcon(productId: product.id)],
             )
           ],
         ),
