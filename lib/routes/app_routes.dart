@@ -5,7 +5,7 @@ import 'package:ecommerce_app/features/authentication/screens/signup/signup.dart
 import 'package:ecommerce_app/features/authentication/screens/signup/verify_email.dart';
 import 'package:ecommerce_app/features/personalization/screens/profile/profile.dart';
 import 'package:ecommerce_app/features/personalization/screens/settings/settings.dart';
-import 'package:ecommerce_app/features/shop/screens/address/address.dart';
+import 'package:ecommerce_app/features/personalization/screens/address/address.dart';
 import 'package:ecommerce_app/features/shop/screens/cart/cart.dart';
 import 'package:ecommerce_app/features/shop/screens/checkout/checkout.dart';
 import 'package:ecommerce_app/features/shop/screens/home/home.dart';

@@ -92,4 +92,6 @@ class EcoImages {
       "assets/images/loading/loading_animated.gif";
   static const String pencilAnimation =
       "assets/images/loading/empty_cart_animated.gif";
+  static const String loadingCircular =
+      "assets/images/loading/loading_circular.gif";
 }
