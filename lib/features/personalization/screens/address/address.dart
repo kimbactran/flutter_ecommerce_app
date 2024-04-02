@@ -1,13 +1,10 @@
 import 'package:ecommerce_app/common/widgets/appbar/appbar.dart';
-import 'package:ecommerce_app/common/widgets/shimmer/shimmer.dart';
-import 'package:ecommerce_app/data/repositories/address/address_repository.dart';
 import 'package:ecommerce_app/features/personalization/controller/address_controller.dart';
 import 'package:ecommerce_app/features/personalization/screens/address/add_new_address.dart';
 import 'package:ecommerce_app/features/personalization/screens/address/widgets/single_address.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/cloud_helper_functions.dart';
-import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

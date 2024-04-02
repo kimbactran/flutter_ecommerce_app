@@ -84,6 +84,8 @@ class EcoImages {
       "assets/images/success_image/payment_success.png";
   static const String successfullyRegisterAnimation =
       "assets/images/success_image/beam-check-mark-in-a-circle.gif";
+  static const String orderSuccess =
+      "assets/images/success_image/order_success.webp";
 
   // Loader
   static const String loaderAnimation =
@@ -94,4 +96,18 @@ class EcoImages {
       "assets/images/loading/empty_cart_animated.gif";
   static const String loadingCircular =
       "assets/images/loading/loading_circular.gif";
+  // Payment method
+  static const String paypal = "assets/images/payment_method/paypal.png";
+  static const String googlePay = "assets/images/payment_method/google_pay.png";
+  static const String applePay = "assets/images/payment_method/apple_pay.webp";
+  static const String creditCard =
+      "assets/images/payment_method/credit_card.png";
+  static const String mastercard =
+      "assets/images/payment_method/mastercard.png";
+  static const String payStack =
+      "assets/images/payment_method/payment_on_delivery.png";
+  static const String paymentOnDelivery =
+      "assets/images/payment_method/mastercard.png";
+  static const String visa = "assets/images/payment_method/visa.png";
+  static const String payTm = "assets/images/payment_method/paytm.png";
 }

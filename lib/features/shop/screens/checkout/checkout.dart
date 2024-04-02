@@ -1,16 +1,17 @@
 import 'package:ecommerce_app/common/widgets/appbar/appbar.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:ecommerce_app/common/widgets/loaders/loaders.dart';
 import 'package:ecommerce_app/common/widgets/product/cart/coupon_widget.dart';
-import 'package:ecommerce_app/common/widgets/success_screen/success_screen.dart';
+import 'package:ecommerce_app/features/shop/controllers/product/cart_controller.dart';
+import 'package:ecommerce_app/features/shop/controllers/product/order_controller.dart';
 import 'package:ecommerce_app/features/shop/screens/cart/widgets/cart_items.dart';
 import 'package:ecommerce_app/features/shop/screens/checkout/widgets/billing_address_section.dart';
 import 'package:ecommerce_app/features/shop/screens/checkout/widgets/billing_amount_section.dart';
 import 'package:ecommerce_app/features/shop/screens/checkout/widgets/billing_payment_section.dart';
-import 'package:ecommerce_app/navigation_menu.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
-import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
+import 'package:ecommerce_app/utils/helpers/pricing_calculator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +20,12 @@ class CheckoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartController = CartController.instance;
+    final subTotal = cartController.totalCartPrice.value;
     final darkMode = EcoHelperFunctions.isDarkMode(context);
+    final orderController = Get.put(OrderController());
+    final totalAmount =
+        EcoPricingCalculator.calculateTotalPrice(subTotal, 'VI');
     return Scaffold(
       appBar: EcoAppBar(
         showBackArrow: true,
@@ -81,13 +87,12 @@ class CheckoutScreen extends StatelessWidget {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(EcoSizes.defaultSpace),
         child: ElevatedButton(
-            onPressed: () => Get.to(() => SuccessScreen(
-                  image: EcoImages.successPayment,
-                  onPressed: () => Get.to(() => const NavigationMenu()),
-                  title: "Payment Success!",
-                  subTitle: "Your item will be shipped soon!",
-                )),
-            child: const Text('CheckOut')),
+            onPressed: subTotal > 0
+                ? () => orderController.processOrder(totalAmount)
+                : () => EcoLoader.warningSnackBar(
+                    title: 'Empty Cart',
+                    message: 'Add items in the cart in order to proceed.'),
+            child: Text('CheckOut \$$totalAmount')),
       ),
     );
   }

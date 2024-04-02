@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/features/shop/controllers/product/cart_controller.dart';
+import 'package:ecommerce_app/utils/helpers/pricing_calculator.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 
@@ -6,6 +8,8 @@ class EcoBillingAmountSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartController = CartController.instance;
+    final subTotal = cartController.totalCartPrice.value;
     return Column(
       children: [
         /// SubTotal
@@ -18,7 +22,7 @@ class EcoBillingAmountSection extends StatelessWidget {
               ),
             ),
             Text(
-              '\$374.3',
+              '\$$subTotal',
               style: Theme.of(context).textTheme.bodyMedium,
             )
           ],
@@ -37,7 +41,7 @@ class EcoBillingAmountSection extends StatelessWidget {
               ),
             ),
             Text(
-              '\$374.3',
+              '\$${EcoPricingCalculator.calculateShippingCost(subTotal, 'VI')}',
               style: Theme.of(context).textTheme.bodyMedium,
             )
           ],
@@ -56,7 +60,7 @@ class EcoBillingAmountSection extends StatelessWidget {
               ),
             ),
             Text(
-              '\$374.3',
+              '\$${EcoPricingCalculator.calculateTax(subTotal, 'VI')}',
               style: Theme.of(context).textTheme.bodyMedium,
             )
           ],
@@ -75,7 +79,7 @@ class EcoBillingAmountSection extends StatelessWidget {
               ),
             ),
             Text(
-              '\$374.3',
+              '\$${EcoPricingCalculator.calculateTotalPrice(subTotal, 'VI')}',
               style: Theme.of(context).textTheme.bodyMedium,
             )
           ],

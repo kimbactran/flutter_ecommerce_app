@@ -1,9 +1,13 @@
-import 'package:ecommerce_app/common/widgets/loaders/animation_loader.dart';
 import 'package:ecommerce_app/common/widgets/loaders/circular_loader.dart';
 import 'package:ecommerce_app/common/widgets/loaders/loaders.dart';
+import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
 import 'package:ecommerce_app/data/repositories/address/address_repository.dart';
 import 'package:ecommerce_app/features/personalization/models/address_model.dart';
+import 'package:ecommerce_app/features/personalization/screens/address/add_new_address.dart';
+import 'package:ecommerce_app/features/personalization/screens/address/widgets/single_address.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
+import 'package:ecommerce_app/utils/constants/sizes.dart';
+import 'package:ecommerce_app/utils/helpers/cloud_helper_functions.dart';
 import 'package:ecommerce_app/utils/networks/network_manager.dart';
 import 'package:ecommerce_app/utils/popups/full_screen_loader.dart';
 import 'package:flutter/material.dart';
@@ -128,6 +132,54 @@ class AddressController extends GetxController {
       EcoLoader.errorSnackBar(
           title: 'Create Address fail!', message: e.toString());
     }
+  }
+
+  // Show Addresses ModalBottomSheet at Checkout
+  Future<dynamic> selectNewAddressPopup(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (_) => SingleChildScrollView(
+              child: Container(
+                padding: const EdgeInsets.all(EcoSizes.lg),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const EcoSectionHeading(
+                      title: 'Select Address',
+                      showActionButton: false,
+                    ),
+                    const SizedBox(
+                      height: EcoSizes.spaceBtwItems,
+                    ),
+                    FutureBuilder(
+                        future: getAllUserAddress(),
+                        builder: (_, snapshot) {
+                          // Helper Function: Handle Loader, No Record, Or Error Message
+                          final response =
+                              EcoCloudHelperFunctions.checkMultiRecordState(
+                                  snapshot: snapshot);
+                          if (response != null) return response;
+                          return ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: snapshot.data!.length,
+                              itemBuilder: (_, index) => EcoSingleAddress(
+                                  address: snapshot.data![index],
+                                  onTap: () async {
+                                    await selectedAddress(
+                                        snapshot.data![index]);
+                                  }));
+                        }),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          onPressed: () =>
+                              Get.to(() => const AddNewAddressScreen()),
+                          child: Text("Add new Address")),
+                    )
+                  ],
+                ),
+              ),
+            ));
   }
 
   // Function to reset form fields

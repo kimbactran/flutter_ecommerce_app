@@ -8,7 +8,13 @@ import 'package:iconsax/iconsax.dart';
 class EcoProductQuantityWithAddRemoveButton extends StatelessWidget {
   const EcoProductQuantityWithAddRemoveButton({
     super.key,
+    required this.quantity,
+    this.add,
+    this.remove,
   });
+
+  final int quantity;
+  final VoidCallback? add, remove;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +27,7 @@ class EcoProductQuantityWithAddRemoveButton extends StatelessWidget {
           height: 32,
           width: 32,
           size: EcoSizes.md,
+          onPressed: remove,
           color: darkMode ? EcoColors.white : EcoColors.black,
           backgroundColor: darkMode ? EcoColors.white : EcoColors.light,
         ),
@@ -28,19 +35,20 @@ class EcoProductQuantityWithAddRemoveButton extends StatelessWidget {
           width: EcoSizes.spaceBtwItems,
         ),
         Text(
-          '2',
+          quantity.toString(),
           style: Theme.of(context).textTheme.titleSmall,
         ),
         const SizedBox(
           width: EcoSizes.spaceBtwItems,
         ),
-        const EcoCircularIcon(
+        EcoCircularIcon(
           icon: Iconsax.add,
           height: 32,
           width: 32,
           size: EcoSizes.md,
           color: EcoColors.white,
           backgroundColor: EcoColors.primary,
+          onPressed: add,
         ),
       ],
     );
