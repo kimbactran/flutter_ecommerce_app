@@ -1,6 +1,8 @@
 # ecommerce_app
 
-A new Flutter project.
+A E-commerce app using Flutter with Firebase as BackEnd
+Link Demo App:
+https://youtu.be/yYUJXFpyWsI
 
 ## Getting Started
 
