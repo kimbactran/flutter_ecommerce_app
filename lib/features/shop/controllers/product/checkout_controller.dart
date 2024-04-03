@@ -15,7 +15,7 @@ class CheckoutController extends GetxController {
   @override
   void onInit() {
     selectedPaymentMethod.value =
-        PaymentMethodModel(image: 'Paypal', name: EcoImages.paypal);
+        PaymentMethodModel(name: 'Paypal', image: EcoImages.paypal);
     super.onInit();
   }
 

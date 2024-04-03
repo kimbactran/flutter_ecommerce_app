@@ -6,6 +6,7 @@ import 'package:ecommerce_app/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:ecommerce_app/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecommerce_app/features/personalization/screens/address/address.dart';
 import 'package:ecommerce_app/features/personalization/screens/profile/profile.dart';
+import 'package:ecommerce_app/features/shop/screens/cart/cart.dart';
 import 'package:ecommerce_app/features/shop/screens/order/order.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
@@ -65,11 +66,12 @@ class SettingsScreen extends StatelessWidget {
                     onTap: () => Get.to(() => const UserAddressScreen()),
                   ),
                   EcoSettingsMenuTile(
-                    icon: Iconsax.shopping_cart,
-                    title: 'My Cart',
-                    subTitle: 'In-progress and Completed Orders',
-                    onTap: () {},
-                  ),
+                      icon: Iconsax.shopping_cart,
+                      title: 'My Cart',
+                      subTitle: 'In-progress and Completed Orders',
+                      onTap: () => Get.to(
+                            () => const CartScreen(),
+                          )),
                   EcoSettingsMenuTile(
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',

@@ -60,7 +60,10 @@ class UserRepository extends GetxController {
   // Function to update user data in Firestore.
   Future<void> updateUserDetails(UserModel updateUser) async {
     try {
-      await _db.collection("Users").doc(updateUser.id).set(updateUser.toJson());
+      await _db
+          .collection("Users")
+          .doc(updateUser.id)
+          .update(updateUser.toJson());
     } on FirebaseException catch (e) {
       throw EcoFirebaseException(e.code).message;
     } on FormatException catch (_) {
@@ -76,7 +79,7 @@ class UserRepository extends GetxController {
   Future<void> updateSingleField(
       Map<String, dynamic> json, String userId) async {
     try {
-      await _db.collection("Users").doc(userId).set(json);
+      await _db.collection("Users").doc(userId).update(json);
     } on FirebaseException catch (e) {
       throw EcoFirebaseException(e.code).message;
     } on FormatException catch (_) {

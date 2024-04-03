@@ -10,6 +10,7 @@ import 'package:ecommerce_app/features/shop/controllers/brand_controller.dart';
 import 'package:ecommerce_app/features/shop/controllers/category_controller.dart';
 import 'package:ecommerce_app/features/shop/screens/brand/all_brands.dart';
 import 'package:ecommerce_app/features/shop/screens/brand/brand_products.dart';
+import 'package:ecommerce_app/features/shop/screens/cart/cart.dart';
 import 'package:ecommerce_app/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
@@ -33,7 +34,12 @@ class StoreScreen extends StatelessWidget {
             'Store',
             style: Theme.of(context).textTheme.headlineMedium,
           ),
-          actions: [EcoCartCounterIcon(onPressed: () {})],
+          actions: [
+            EcoCartCounterIcon(
+              onPressed: () => Get.to(() => const CartScreen()),
+              iconColor: EcoColors.white,
+            )
+          ],
         ),
         body: NestedScrollView(
             headerSliverBuilder: (_, innerBoxIsScrolled) {

@@ -105,7 +105,7 @@ class EcoProductMetaData extends StatelessWidget {
               imageUrl: product.brand != null ? product.brand!.image : '',
               width: 32,
               height: 32,
-              overlayColor: darkMode ? EcoColors.white : EcoColors.black,
+              // overlayColor: darkMode ? EcoColors.white : EcoColors.black,
             ),
             if (product.brand!.isFeatured!)
               EcoBrandTitleWithVerifiedIcon(

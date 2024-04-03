@@ -70,7 +70,13 @@ class EcoBottomAddToCart extends StatelessWidget {
                   padding: const EdgeInsets.all(EcoSizes.md),
                   backgroundColor: darkMode ? EcoColors.white : EcoColors.black,
                   side: const BorderSide(color: EcoColors.black)),
-              child: const Text('Add to Cart'))
+              child: Text(
+                'Add to Cart',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .apply(color: EcoColors.white),
+              ))
         ]),
       ),
     );
